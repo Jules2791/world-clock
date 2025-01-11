@@ -26,6 +26,19 @@ function updateTime() {
   }
 }
 
+// São Paulo
+let saoPauloElement = document.querySelector("#sao-paulo");
+if (saoPauloElement) {
+  let saoPauloDateElement = saoPauloElement.querySelector(".date");
+  let saoPauloTimeElement = saoPauloElement.querySelector(".time");
+  let saoPauloTime = moment().tz("Brazil/East");
+
+  saoPauloDateElement.innerHTML = moment().format("MMMM Do YYYY");
+  saoPauloTimeElement.innerHTML = saoPauloTime.format(
+    "h:mm:ss [<small>]A[</small>]"
+  );
+}
+
 function updateCity(event) {
   let cityTimeZone = event.target.value;
   if ((cityTimeZone = "current")) {
