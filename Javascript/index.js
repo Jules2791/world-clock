@@ -31,7 +31,7 @@ let saoPauloElement = document.querySelector("#sao-paulo");
 if (saoPauloElement) {
   let saoPauloDateElement = saoPauloElement.querySelector(".date");
   let saoPauloTimeElement = saoPauloElement.querySelector(".time");
-  let saoPauloTime = moment().tz("Brazil/East");
+  let saoPauloTime = moment().tz("America/Sao_Paulo");
 
   saoPauloDateElement.innerHTML = moment().format("MMMM Do YYYY");
   saoPauloTimeElement.innerHTML = saoPauloTime.format(
@@ -41,23 +41,23 @@ if (saoPauloElement) {
 
 function updateCity(event) {
   let cityTimeZone = event.target.value;
-  if ((cityTimeZone = "current")) {
+  if (cityTimeZone === "current") {
     cityTimeZone = moment.tz.guess();
   }
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
   let citiesElement = document.querySelector("#cities");
   citiesElement.innerHTML = `
-    <div class="city">
-      <div>
-        <h2>${cityName}</h2>
-        <div class="date">${cityTime.format("MMMM	Do YYYY")}</div>
-      </div>
-      <div class="time">
-        ${cityTime.format("hh:mm:ss")} <small>${cityTime.format("A")}</small>
-      </div>
+  <div class="city">
+    <div>
+      <h2>${cityName}</h2>
+      <div class="date">${cityTime.format("MMMM	Do YYYY")}</div>
     </div>
-      <a href="/">All cities</a>
+    <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format(
+    "A"
+  )}</small></div>
+  </div>
+  <a href="/">All cities</a>
   `;
 }
 
