@@ -24,19 +24,19 @@ function updateTime() {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
-}
 
-// São Paulo
-let saoPauloElement = document.querySelector("#sao-paulo");
-if (saoPauloElement) {
-  let saoPauloDateElement = saoPauloElement.querySelector(".date");
-  let saoPauloTimeElement = saoPauloElement.querySelector(".time");
-  let saoPauloTime = moment().tz("America/Sao_Paulo");
+  // São Paulo
+  let saoPauloElement = document.querySelector("#sao-paulo");
+  if (saoPauloElement) {
+    let saoPauloDateElement = saoPauloElement.querySelector(".date");
+    let saoPauloTimeElement = saoPauloElement.querySelector(".time");
+    let saoPauloTime = moment().tz("America/Sao_Paulo");
 
-  saoPauloDateElement.innerHTML = moment().format("MMMM Do YYYY");
-  saoPauloTimeElement.innerHTML = saoPauloTime.format(
-    "h:mm:ss [<small>]A[</small>]"
-  );
+    saoPauloDateElement.innerHTML = moment().format("MMMM Do YYYY");
+    saoPauloTimeElement.innerHTML = saoPauloTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 
 function updateCity(event) {
